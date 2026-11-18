@@ -1,15 +1,41 @@
+<script setup lang="ts">
+import type { NavigationMenuItem } from '@nuxt/ui'
+
+const items = ref<NavigationMenuItem[][]>([
+  [
+    {
+      label: 'Home',
+      icon: 'i-lucide-box',
+      to: '/'
+    },
+    {
+      label: 'Cats',
+      icon: 'i-lucide-box',
+      to: '/cats'
+    },
+    {
+      label: 'Kittens',
+      icon: 'i-lucide-box',
+      to: '/kittens',
+    },
+    {
+      label: 'Felix',
+      icon: 'i-lucide-box',
+      to: '/kittens/felix',
+    },
+    {
+      label: 'any cat name',
+      icon: 'i-lucide-box',
+      to: '/kittens/anycatnamehere',
+    }
+  ]
+])
+</script>
+
 <template>
-  <div>
-    <nav>
-      <ul>
-      <li><NuxtLink to="/">Home</NuxtLink></li>
-      <li><NuxtLink to="/cats">Cats</NuxtLink></li>
-      <li><NuxtLink to="/kittens">Kittens</NuxtLink></li>
-      <li><NuxtLink to="/kittens/felix">Felix</NuxtLink></li>
-      <li><NuxtLink to="/kittens/anycatnamehere">any cat name</NuxtLink></li>
-      </ul>
-    </nav>
+  <UApp>
+    <UNavigationMenu color="neutral" variant="link" :items="items" class="w-full" />
     <NuxtRouteAnnouncer />
     <NuxtPage />
-  </div>
+  </UApp>
 </template>
