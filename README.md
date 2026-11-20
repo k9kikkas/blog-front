@@ -1,75 +1,44 @@
-# Nuxt Minimal Starter
+SCRAM!
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+nuxt UI juhend SIIN JA NÜÜD
 
-## Setup
-
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+1. bun add @nuxt/ui tailwindcss
+2. add nuxt ui module
+>nuxt.config.ts
+``export default defineNuxtConfig({
+  modules: ['@nuxt/ui']
+})``
+3. import tailwind css and nuxt ui in your css
+>app/assets/css/main.css
+``@import "tailwindcss";
+@import "@nuxt/ui";``
+>nuxt.config.ts
+``export default defineNuxtConfig({
+  modules: ['@nuxt/ui'],
+  css: ['~/assets/css/main.css']
+})``
+3.1 if you dont have css file, make it. make folders, files and everything.
+>app -> assets -> css -> main.css
+3.2 install Tailwind CSS IntelliSense enxtension in vscode
+3.3 add settings (and make folders/files if needed)
+>.vscode/settings.json
+``{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.classFunctions": ["defineAppConfig"]
+}
+``
+4. wrap your app with app components
+>app.vue
+``
+<template>
+  <UApp>
+    <NuxtPage />
+  </UApp>
+</template>
+``
